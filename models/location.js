@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Location.hasMany(models.Result, {
-        foreignKey: "siteId",
+        foreignKey: "locationResults",
       });
       models.Result.belongsTo(Location);
     }
