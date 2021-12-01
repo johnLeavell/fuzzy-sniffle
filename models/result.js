@@ -2,16 +2,14 @@
 const { Model, Sequelize, DataTypes } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Result extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
-      // define association here
-      models.Result.belongsTo(models.Location);
+      Result.belongsTo(models.Location, {
+        foreignKey: "locationId",
+        as: "location",
+      });
     }
   }
+
   Result.init(
     {
       id: {
@@ -20,10 +18,22 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         primaryKey: true,
       },
-      temp: DataTypes.STRING,
-      trubidity: DataTypes.STRING,
-      depth: DataTypes.STRING,
-      coliform: DataTypes.STRING,
+      temp: {
+        allowNull: false,
+        type: DataTypes.TEXT,
+      },
+      trubidity: {
+        allowNull: false,
+        type: DataTypes.TEXT,
+      },
+      depth: {
+        allowNull: false,
+        type: DataTypes.TEXT,
+      },
+      coliform: {
+        allowNull: false,
+        type: DataTypes.TEXT,
+      },
     },
     {
       sequelize,
