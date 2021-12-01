@@ -6,7 +6,6 @@ const { ValidationError } = require("sequelize");
 const getLocationById = async (req, res) => {
   try {
     const { id } = req.params;
-
     if (!uuidValidate(id)) {
       return res.status(400).send("Provided ID is not valid UUID");
     }
@@ -54,7 +53,11 @@ const findAll = async (req, res) => {
 const update = async (req, res) => {
   try {
     const { id } = req.params;
+    if (!uuidValidate(id)) {
+      return res.status(400).send("Provided ID is not valid UUID");
+    }
     const { name } = req.body;
+
     await db.Location.update(
       { name: `${name}` },
       {

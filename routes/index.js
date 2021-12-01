@@ -14,6 +14,7 @@ router.get("/api/locations", locationController.findAll);
 router.post("/api/result", resultController.createResult);
 router.put("/api/results/:id", resultController.updateResult);
 router.get("/api/results", resultController.findAllResults);
-router.delete("/api/results", resultController.deleteResult);
+router.delete("/api/results/:id", resultController.deleteResult);
+router.get("/api/results/:id", resultController.getResultById);
 
 module.exports = router;
