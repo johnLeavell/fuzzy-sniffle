@@ -11,8 +11,9 @@ router.delete("/api/locations/:id", locationController.deleteLocation);
 router.get("/api/locations", locationController.findAll);
 
 //result endpoints
-router.post("/api/result", resultController.create);
-// router.put("/api/results/:id", resultController.update);
-// router.get("/api/results", resultController.findAll);
+router.post("/api/result", resultController.createResult);
+router.put("/api/results/:id", resultController.updateResult);
+router.get("/api/results", resultController.findAllResults);
+router.delete("/api/results", resultController.deleteResult);
 
 module.exports = router;

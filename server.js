@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/", routes);
-db.sequelize.sync()
+db.sequelize.sync();
 module.exports = app;
 // db.sequelize.sync({ force: true }).then(() => {
 //   console.log("Drop and re-sync db.");
