@@ -2,7 +2,7 @@ const express = require("express");
 require("dotenv").config();
 const cors = require("cors");
 const routes = require("./routes");
-const db = require('./models')
+const db = require("./models");
 
 const app = express();
 
@@ -17,3 +17,6 @@ app.get("/", (req, res) => {
 app.use("/", routes);
 db.sequelize.sync()
 module.exports = app;
+// db.sequelize.sync({ force: true }).then(() => {
+//   console.log("Drop and re-sync db.");
+// });
