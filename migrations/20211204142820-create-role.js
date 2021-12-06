@@ -1,22 +1,21 @@
+"use strict";
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("results", {
+    await queryInterface.createTable("Roles", {
       id: {
         allowNull: false,
         primaryKey: true,
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
       },
-      temp: {
-        type: Sequelize.STRING,
+      isAdmin: {
+        type: Sequelize.BOOLEAN,
       },
-      trubidity: {
-        type: Sequelize.STRING,
+      isUser: {
+        type: Sequelize.BOOLEAN,
       },
-      depth: {
-        type: Sequelize.STRING,
-      },
-      coliform: {
-        type: Sequelize.STRING,
+      isModerator: {
+        type: Sequelize.BOOLEAN,
       },
       createdAt: {
         allowNull: false,
@@ -29,6 +28,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("results");
+    await queryInterface.dropTable("Roles");
   },
 };
