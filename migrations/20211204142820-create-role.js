@@ -10,12 +10,15 @@ module.exports = {
       },
       isAdmin: {
         type: Sequelize.BOOLEAN,
+        defaultValue: false,
       },
       isUser: {
         type: Sequelize.BOOLEAN,
+        defaultValue: true,
       },
       isModerator: {
         type: Sequelize.BOOLEAN,
+        defaultValue: false,
       },
       createdAt: {
         allowNull: false,
