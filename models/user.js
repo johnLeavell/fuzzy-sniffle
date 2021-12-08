@@ -3,9 +3,7 @@ const { Model, Sequelize, DataTypes } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
-      User.belongsToMany(models.Role, {
-        through: "user_roles",
-      });
+
     }
   }
   User.init(
@@ -18,14 +16,14 @@ module.exports = (sequelize, DataTypes) => {
         autoIncrement: false,
       },
       userName: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
         validate: {
           notEmpty: true,
         },
       },
       email: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
         unique: {
           args: true,
@@ -33,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
       password: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
         validate: {
           notEmpty: true,
